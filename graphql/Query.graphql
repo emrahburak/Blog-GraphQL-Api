@@ -1,0 +1,53 @@
+
+scalar Date
+
+type Query{
+  user(id:ID!): User!
+  users: [User!]!
+  post(id:ID!): Post!
+  posts: [Post!]!
+  }
+
+type User{
+  id: ID!
+  username: String!
+  createdAt: Date
+  posts: [Post!]!
+  }
+
+type Post{
+     id: ID!
+     title: String!
+     text: String!
+     createdAt: Date!
+     user: User!
+}
+
+type Token{
+    token: String!
+}
+
+type Mutation{
+  createUser(data:CreateUserInput!): Token
+  createPost(data:CreatePostInput!): Post
+  signIn(data:SignInUserInput!): Token
+  }
+
+
+input CreateUserInput{
+  username: String!
+  password: String!
+
+  }
+
+input CreatePostInput{
+  title: String!
+  text: String!
+  userId: ID!
+
+}
+
+input SignInUserInput{
+     username: String!
+     password: String!
+}
