@@ -1,4 +1,5 @@
 # Blog-GraphQL-Boilerplate
 Only server
 
-testing..
+## cmd: 
+nmp run dev
